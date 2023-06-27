@@ -4,7 +4,7 @@ import json
 #GET запрос
 status = 'available'
 res = requests.get(f"https://petstore.swagger.io/v2/pet/findByStatus?status=available", headers={'accept': 'application/json'})
-print(res.status_code, 'Get запрос')
+print(res.status_code, 'GET запрос')
 print(res.json())
 
 #POST запрос
@@ -28,7 +28,7 @@ new_pet = {
 }
 res_p = requests.post(f'https://petstore.swagger.io/v2/pet', headers = {'accept': 'application/json', 'Content-Type': 'application/json'},
 data = json.dumps(new_pet))
-print(res_p.status_code, 'Post запрос')
+print(res_p.status_code, 'POST запрос')
 print(res_p.json())
 
 #DELETE запрос
@@ -57,7 +57,7 @@ data = {
 }
 res_put = requests.put(f'https://petstore.swagger.io/v2/pet', headers = {'accept': 'application/json', 'Content-Type': 'application/json'},
 data = json.dumps(data))
-print(res_put.status_code, 'запрос PUT')
+print(res_put.status_code, 'PUT запрос')
 print(res_put.json())
 
 #Если в curl формат json, тогда надо прописать data = json.dumps()
