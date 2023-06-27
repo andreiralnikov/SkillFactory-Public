@@ -6,7 +6,7 @@ from requests_toolbelt.multipart.encoder import MultipartEncoder
 
 
 class PetFriends:
-    """апи библиотека к веб приложению Pet Friends"""
+    """API библиотека к веб приложению Pet Friends"""
 
     def __init__(self):
         self.base_url = "https://petfriends.skillfactory.ru/"
@@ -30,7 +30,7 @@ class PetFriends:
 
     def get_list_of_pets(self, auth_key: json, filter: str = "") -> json:
         """Метод делает запрос к API сервера и возвращает статус запроса и результат в формате JSON
-        со списком наденных питомцев, совпадающих с фильтром. На данный момент фильтр может иметь
+        со списком наденных питомцев, совпадающих с фильтром. На данный момент, фильтр может иметь
         либо пустое значение - получить список всех питомцев, либо 'my_pets' - получить список
         собственных питомцев"""
 
@@ -48,7 +48,7 @@ class PetFriends:
 
     def add_new_pet(self, auth_key: json, name: str, animal_type: str,
                     age: str, pet_photo: str) -> json:
-        """Метод отправляет (постит) на сервер данные о добавляемом питомце и возвращает статус
+        """Метод отправляет на сервер данные о добавляемом питомце и возвращает статус
         запроса на сервер и результат в формате JSON с данными добавленного питомца"""
 
         data = MultipartEncoder(
@@ -73,7 +73,7 @@ class PetFriends:
     def delete_pet(self, auth_key: json, pet_id: str) -> json:
         """Метод отправляет на сервер запрос на удаление питомца по указанному ID и возвращает
         статус запроса и результат в формате JSON с текстом уведомления о успешном удалении.
-        На сегодняшний день тут есть баг - в result приходит пустая строка, но status при этом = 200"""
+        На сегодняшний день, тут есть баг - в result приходит пустая строка, но status при этом = 200"""
 
         headers = {'auth_key': auth_key['key']}
 
@@ -172,7 +172,4 @@ class PetFriends:
             result = res.text
         print(result)
         return status, result
-
-
-
-
+        
