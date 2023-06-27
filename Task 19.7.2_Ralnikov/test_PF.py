@@ -53,7 +53,7 @@ def test_add_pet_valid_data_no_photo(name='Пёсик_без_фото', animal_t
     print(f'добавлен {result}')
 
 # Test 7
-def test_add_photo_for_pet(pet_photo='images/pug1.jpg'):
+def test_add_photo_for_pet(pet_photo='images/pug1.jpeg'):
     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
 
     _, api_key = pf.get_api_key(valid_email, valid_password)
