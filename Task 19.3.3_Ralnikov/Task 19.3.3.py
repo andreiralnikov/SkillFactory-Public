@@ -1,12 +1,13 @@
 import requests
 import json
-#GET
+
+#GET запрос
 status = 'available'
 res = requests.get(f"https://petstore.swagger.io/v2/pet/findByStatus?status=available", headers={'accept': 'application/json'})
-print(res.status_code, 'запрос Get')
+print(res.status_code, 'Get запрос')
 print(res.json())
 
-#POST
+#POST запрос
 new_pet = {
   "id": 9223372036854572002,
   "category": {
@@ -27,16 +28,15 @@ new_pet = {
 }
 res_p = requests.post(f'https://petstore.swagger.io/v2/pet', headers = {'accept': 'application/json', 'Content-Type': 'application/json'},
 data = json.dumps(new_pet))
-print(res_p.status_code, 'запрос Post')
+print(res_p.status_code, 'Post запрос')
 print(res_p.json())
 
-#DELETE
+#DELETE запрос
 res_d = requests.delete(f'https://petstore.swagger.io/v2/pet/9223372036854572002', headers = {'accept': 'application/json'})
-print(res_d.status_code, 'запрос DELETE')
+print(res_d.status_code, 'DELETE запрос')
 print(res_d.json())
 
-#PUT
-
+#PUT запрос
 data = {
   "id": 9223372036854765198,
   "category": {
@@ -60,15 +60,5 @@ data = json.dumps(data))
 print(res_put.status_code, 'запрос PUT')
 print(res_put.json())
 
-
-
-
-
-
-
-
-
-#Если в curl формат json, то прописать data = json.dumps()
-#или
-#json = {'id': 9223372036854765198, 'name': 'new_name', 'tags': []})
-# url и некоторые значения можно записать в переменную и в запросах использовать {базовый}/ и продолжение из свагера
+#Если в curl формат json, тогда надо прописать data = json.dumps()
+#Другой вариант: json = {'id': 9223372036854765198, 'name': 'new_name', 'tags': []})
